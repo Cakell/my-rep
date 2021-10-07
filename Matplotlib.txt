@@ -1,0 +1,14 @@
+import matplotlib.pyplot as plt
+
+f, ax = plt.subplots(1, figsize=(9,9))  # creates a new figure ("Figure 1) in a newly created window.
+										# (Note: DO NOT close this window, or else the future plots would not be plotted anywhere.)
+										# 1 is the number of frames in the figure, figsize=(9,9) means 900x900 pixels sized figure.
+										
+gdf1.plot(ax=ax, facecolor='red', alpha=1)	# the ax parameter will attach the plot to the above created figure.
+											# alpha is the opacity parameter.
+											# alpha=0   means fully transparent color (nothing will be drawn),
+											# alpha=0.5 means halfly transparent color.
+											# alpha=1   means non-transparent color.
+
+gdf1.plot(ax=ax, facecolor='blue', alpha=0.5)
+

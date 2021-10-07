@@ -1,0 +1,64 @@
+pandas:
+
+Note that most of the following methods RETURN (!) a new DF, and does not chenge the given DF.
+To change the DF - one should write: df = df.method() ... , unless there is a 'inplace' parameter,
+by which one can set the method to activate "in place" and the df will effectively change - in place.
+
+
+Construct a new DF:
+	check this link: https://pbpython.com/pandas-list-dict.html
+
+
+Selecting a subset of the DF's columns:
+	1. df[['selected_column0', 'selected_column1', ... , 'selected_column_n-1']]
+or: 2. df.iloc[:, 1:n-1] (1:n-1 is just an example for slicing)
+
+
+Rename columns:
+	df.rename(columns={'old_name0': 'new_name0', 'old_name1': 'new_name1', ...})
+
+
+Set an existing column as an index:
+	df.set_index('column_name')
+
+
+Reset the index of a DF:
+	df.reset_index(drop=True)
+
+
+Sort the DF's rows according to a column's values:
+	df.sort_values('column_name', ascending=True/False])
+
+
+Apply a function to each cell in a Series:
+	series.map(func)
+
+
+Apply a function to each cell in a DF, dependent on a value in the corresponding row:
+	df.apply(func, axis=1)
+
+
+Replace nan values in a DataFrame:
+	df.fillna(0)
+
+Insert a column in a specific index:
+	df.insert(index, column_name, column_value)
+
+Delete columns of a DataFrame:
+	df.drop([column0, column1, ...], axis=1)
+
+
+
+options: various display & behavior options regarding pandas DataFrames.
+	 can get/set options directly using the '.' operator (e.g. pd.options.display.max_rows = 999).
+	 Alternatively, one can get/set options using get/set methods (e.g. pd.get_option("display.max_rows") or pd.set_option("display.max_rows", 101))
+
+	display.max_rows:	Max number of rows    to be displayed when printing a DataFrame. 'None' value means unlimited. (default value: 60)
+	display.max_columns:	Max number of columns to be displayed when printing a DataFrame. 'None' value means unlimited. (default value: 20 in IDE, auto-detect in terminal)
+	display.precision:	Number of digits to be saved on float numbers inside the df. (Note it differs from the number of digits printed) (default value: 6)
+	display.float_format:   Number of digits to be displayed with float numbers when printing a DataFrame. (default value: None)
+	display.max_colwidth:	The maximum width in characters of a column when printing a df. When the column overflows, a "..." is shown. 'None' value means unlimited. (default value: 50)
+	display.width:		Width of the display in characters. Can be set to None in terminal, in such case pd will correctly auto-detect the width. (default value: 80)
+	display.show_dimensions: Print dimensions (num_rows x num_columns) at the end of a DataFrame:	True (always print) /			        (default value: truncate )
+													truncate (print if df isn't fully printed) /
+													False (never print)
